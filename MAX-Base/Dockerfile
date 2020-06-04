@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-FROM continuumio/miniconda3:4.7.12
+FROM miniconda3-nvidiabase
 
 # Upgrade all packages to meet security criteria
 RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
