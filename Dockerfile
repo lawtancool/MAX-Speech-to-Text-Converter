@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-FROM codait/max-base:v1.3.2
+FROM max-base
 
 ARG model_bucket=https://max-cdn.cdn.appdomain.cloud/max-speech-to-text-converter/1.0.0
 ARG model_file=assets.tar.gz
@@ -24,8 +24,8 @@ WORKDIR /workspace
 RUN wget -nv --show-progress --progress=bar:force:noscroll ${model_bucket}/${model_file} --output-document=assets/${model_file} && \
   tar -x -C assets/ -f assets/${model_file} -v && rm assets/${model_file}
 
-COPY requirements.txt /workspace
-RUN pip install -r requirements.txt
+COPY requirements-gpu.txt /workspace
+RUN pip install -r requirements-gpu.txt
 
 COPY . /workspace
 
