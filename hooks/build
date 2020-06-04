@@ -2,3 +2,4 @@
 
 docker build -f Dockerfile.miniconda3-nvidiabase -t miniconda3-nvidiabase
 docker build MAX-Base/ -t max-base
+docker build -t $IMAGE_NAME .
